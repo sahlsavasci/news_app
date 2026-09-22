@@ -39,8 +39,11 @@ dependencies:
   url_launcher: ^6.3.2           # Buka artikel di browser eksternal
   share_plus: ^13.3.0            # Berbagi artikel ke aplikasi lain
   cached_network_image: ^4.0.0   # Cache gambar dari network
-  timeago: ^3.7.1                # Format waktu "x menit lalu"
-  flutter_dotenv: ^6.0.1         # Membaca API key dari file .env
+  timeago: ^3.7.1                # Format time "x minutes ago"
+  flutter_dotenv: ^6.0.1         # Read API key from .env file
+  shimmer: ^3.0.0                 # Skeleton loading animations
+  get_storage: ^2.1.1
+  flutter_cache_manager: ^3.4.5
 
 dev_dependencies:
   flutter_test:

@@ -32,7 +32,7 @@ class NewsService {
       final response = await http.get(uri);
 
       if (response.statusCode == 200) {
-        final jsonData = json.decode(response.body);
+        final jsonData = jsonDecode(response.body);
         return NewsResponse.fromJson(jsonData);
       } else {
         throw Exception('Failed to load news: ${response.statusCode}');
@@ -66,7 +66,7 @@ class NewsService {
       final response = await http.get(uri);
 
       if (response.statusCode == 200) {
-        final jsonData = json.decode(response.body);
+        final jsonData = jsonDecode(response.body);
         return NewsResponse.fromJson(jsonData);
       } else {
         throw Exception('Failed to search news: ${response.statusCode}');

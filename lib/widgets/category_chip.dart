@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/utils/app_colors.dart';
 
 class CategoryChip extends StatelessWidget {
   final String label;
@@ -15,23 +14,26 @@ class CategoryChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(right: 8),
-      child: FilterChip(
-        label: Text(label),
-        selected: isSelected,
-        onSelected: (_) => onTap(),
-        backgroundColor: Colors.grey[100],
-        selectedColor: AppColors.primary.withValues(alpha: 0.2),
-        checkmarkColor: AppColors.primary,
-        labelStyle: TextStyle(
-          color: isSelected ? AppColors.primary : AppColors.textSecondary,
-          fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: isSelected ? Theme.of(context).primaryColor : Colors.transparent,
+              width: 3,
+            ),
+          ),
         ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: BorderSide(
-            color: isSelected ? AppColors.primary : Colors.transparent,
+        child: Text(
+          label,
+          style: TextStyle(
+            color: isSelected 
+                ? Theme.of(context).primaryColor 
+                : (Theme.of(context).textTheme.bodyLarge?.color ?? Colors.black).withValues(alpha: 0.6),
+            fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
+            fontSize: 15,
           ),
         ),
       ),

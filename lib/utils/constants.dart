@@ -4,7 +4,13 @@ class Constants {
   static const String baseUrl = 'https://newsapi.org/v2';
 
   // Get API key from environment variables
-  static String get apiKey => dotenv.env['API_KEY'] ?? '';
+  static String get apiKey {
+    final key = dotenv.env['API_KEY'];
+    if (key == null || key.isEmpty) {
+      throw Exception('API_KEY not found in .env file');
+    }
+    return key;
+  }
 
   // Endpoints
   static const String topHeadlines = '/top-headlines';
