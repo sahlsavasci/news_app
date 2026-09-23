@@ -114,6 +114,19 @@ class _SettingsViewState extends State<SettingsView> {
     );
   }
 
+  String _getRegionName(String code) {
+    switch (code) {
+      case 'us':
+        return 'United States';
+      case 'id':
+        return 'Indonesia';
+      case 'gb':
+        return 'Global (UK)';
+      default:
+        return code.toUpperCase();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final settings = Get.find<SettingsController>();
@@ -139,7 +152,7 @@ class _SettingsViewState extends State<SettingsView> {
           _buildSectionHeader('Preferences'),
           Obx(() => _buildListTile(
             title: 'Region / Edition',
-            subtitle: settings.region.value.toUpperCase(),
+            subtitle: _getRegionName(settings.region.value),
             icon: Icons.public,
             onTap: () => _showRegionDialog(settings),
             context: context,
